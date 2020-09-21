@@ -37,7 +37,7 @@
 	background-color: lightgray;
 }
 .author {
-	width: 180px;
+	width: 170px;
 	height: 25px;
 	margin-left: auto;
 	margin-right: auto;
@@ -48,30 +48,13 @@
 
 	<form action="result" method="post">
 		<div id="container" class="container">
-			<div id="title" class="title">CALCULATOR</div>
-			<div id="row1">
-				<datalist id="datalist">
-					<option value="+">
-					<option value="-">
-					<option value="/">
-					<option value="*">
-				</datalist>
-				
-				Enter first number, next sign (+, -, /, *), and last number:<br>
-				<input type="number" name="firstNumber" step="any" required="required"/>
-				<input type="text" name="sign" class="sign" required="required" maxlength=1 list="datalist"/>
-				<input type="number" name="secondNumber" step="any" required="required"/>
-				<input type="submit" name="submit" value="Calculate">
-			</div>
 			<div id="equals">
-				<br>
-				Result:<br>
 				
-				<c:if test="${flag == 0}"> 
-					
-						${num1} ${sign} ${num2} = ${result}
-						
-					</c:if>
+				You are enter invalid input data:<br>
+				- divide by 0;<br>
+				- not correct operator.<br>
+				Please <a href="https://calculator-lkutylowski.herokuapp.com/">return</a> and input valid data.
+	
 			</div>
 			<div id="footer" class="footer">
 				<div id="author" class="author">Łukasz Kutyłowski | 2020</div>
