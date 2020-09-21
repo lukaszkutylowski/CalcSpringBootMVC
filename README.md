@@ -68,62 +68,81 @@ Last section is footer with informations about author and date.
 
 ![alt text](/.readmeimages/image6.jpg)
 
+*Image shows error.jsp file with error message*
+
+When user input dividing by zero or invalid operator then application return error message with link to main page.
+
+![alt text](/.readmeimages/image7.jpg)
+
 *CalcSpringBootMvcApplication* is run class. This class have *@SpringBootApplication* annotation.
 
 *Image shows CalcSpringBootMvcApplication class*
 
-![alt text](/.readmeimages/image7.jpg)
+![alt text](/.readmeimages/image8.jpg)
 
 *CalcController* class is a class with *@Controller* annotation. This class supports requests from web browser.
 When we enter address *localhost:8080/calc*, the application return index.jsp page.
 
 *Image shows CalcController class*
 
-![alt text](/.readmeimages/image8.jpg)
+![alt text](/.readmeimages/image9.jpg)
 
 *doCalc()* method is runned when post method is executed.
 *RequestMapping(value="result")* annotation is name of this controller method (fragment of the mapped url path).
 *method=RequestMethod.POST* indicates that the method responds to the use of the POST method.
 *ModelAndView* is a container where we can place objects and send them to the view. 
 From request object we get parameters and save in BigDecimal variables.
+At first application check that operation is dividing by zero or operator is invalid.
+If yes, application return error.jsp page. If not, calculation is executed.
 In next step *service.executeCalculation()* realized calculations on two numbers from request POST method.
 *mv.addObject()* enables add some objects with like parameters.
 *mv.setViewName()* enables set a view target file.
  
 *Image shows CalcController class*
 
-![alt text](/.readmeimages/image9.jpg)
-
-*Image shows start page of CalcServlet web application.*
-*We can input two numbers and operator sign. Result is printed below.*
-
 ![alt text](/.readmeimages/image10.jpg)
 
-*Sign input contains predefined list. We should input one sign from list.*
+*isZero()* method check that operation is dividing by zero.
+*invalidOperator()* check that operator is different than (+,-,/,*).
+
+*Image shows CalcController class*
 
 ![alt text](/.readmeimages/image11.jpg)
 
-*JSP page contains functionality "This field is required" for all inputs.*
+*Image shows start page of CalcSpringBootMVC web application.*
+*We can input two numbers and operator sign. Result is printed below.*
 
 ![alt text](/.readmeimages/image12.jpg)
 
-*Example execution of CalcServlet application:*
-*input two numbers and set "/" operator and click "Calculate".*
+*Sign input contains predefined list. We should input one sign from list.*
 
 ![alt text](/.readmeimages/image13.jpg)
 
-*Result is printed below. We can input next values.*
+*JSP page contains functionality "This field is required" for all inputs.*
 
 ![alt text](/.readmeimages/image14.jpg)
 
-*Result of addition.*
+*Example execution of CalcSpringBootMVC application:*
+*input two numbers and set "/" operator and click "Calculate".*
 
 ![alt text](/.readmeimages/image15.jpg)
 
-*Result of subtraction.*
+*Result is printed below. We can input next values.*
 
 ![alt text](/.readmeimages/image16.jpg)
 
-*Result of multiplying.*
+*Result of addition.*
 
 ![alt text](/.readmeimages/image17.jpg)
+
+*Result of subtraction.*
+
+![alt text](/.readmeimages/image18.jpg)
+
+*Result of multiplying.*
+
+![alt text](/.readmeimages/image19.jpg)
+
+*Result of invalid input data - error message.*
+
+![alt text](/.readmeimages/image20.jpg)
