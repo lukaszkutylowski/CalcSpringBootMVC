@@ -50,16 +50,12 @@ This private methods use methods from BigDecimal class to execute operations on 
 This Java Server Page contains settings according to UTF-8 charset, import PrintWriter class and import Java Standard Tag Library file. 
 In *<style>* section is declared a CSS styles configurations. It is contains some CSS classes e.g. *.container{}*.
 
-*Image shows index.jsp page*
-
 ![alt text](/.readmeimages/image4.jpg)
 
 This application use POST HTTP method to communicate with backend side of web application.
 */result* is the fragment of the mapped url path of method which supports POST method.
 This form contains inputs: two numbers and operator (sign) from predefined list.
 This set of information is sent to the *doCalc()* CalcController method.
-
-*Image shows form implementation in index.jsp file*
 
 ![alt text](/.readmeimages/image5.jpg)
 
@@ -68,13 +64,9 @@ If flag equals 0 then result is printed. This condition is implemented to printi
 Flag allows to turn off display of null values.
 Last section is footer with informations about author and date.
 
-*Image shows code with Expression Language which implements presenting of results*
-
 ![alt text](/.readmeimages/image6.jpg)
 
 ### error.jsp
-
-*Image shows error.jsp file with error message*
 
 When user input dividing by zero or invalid operator then application return error message with link to main page.
 
@@ -84,7 +76,6 @@ When user input dividing by zero or invalid operator then application return err
 
 *CalcSpringBootMvcApplication* is run class. This class have *@SpringBootApplication* annotation.
 
-*Image shows CalcSpringBootMvcApplication class*
 
 ![alt text](/.readmeimages/image8.jpg)
 
