@@ -55,7 +55,7 @@ This application use POST HTTP method to communicate with backend side of web ap
 This form contains inputs: two numbers and operator (sign) from predefined list.
 This set of information is sent to the *doCalc()* CalcController method.
 
-*Image shows <form> implementation in index.jsp file*
+*Image shows form implementation in index.jsp file*
 
 ![alt text](/.readmeimages/image5.jpg)
 
