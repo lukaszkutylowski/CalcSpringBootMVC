@@ -21,8 +21,6 @@ Calculations are performed on the server side, data input and output is performe
 *application.properties* it is a configuration file, where are information about view file localization and extension.
 The most of configurations in this project are implemented by annotations.
 
-*Image shows application.properties file*
-
 ![alt text](/.readmeimages/image1.jpg)
 
 ### CalcService
@@ -31,14 +29,20 @@ The most of configurations in this project are implemented by annotations.
 *isZero(String sign, BigDecimal num2)* method is used to check that second variable is zero or not (divide by zero). If variable is zero, return true;
 *invalidOperator(String sign)* method check mathematical operator. If is not valid, return true.
 
+![alt text](/.readmeimages/image21.jpg)
+
 *executeCalculation(BigDecimal num1, BigDecimal num2, String sign)* method send data to private method in order to calculate result value.
 Method assumes two BigDecimal numbers and operator sign (+, -, /, *).
 After calculation this method returns BigDecimal result.
+
+![alt text](/.readmeimages/image22.jpg)
 
 *CalcService* contains four private methods:
 *add(), *subtract()*, *divide()*, *multiply()*.
 This private methods use methods from BigDecimal class to execute operations on two numbers.
 *divide()* method additionaly contains setting according to rounding last digit and 10 significant digits after the decimal point setting.
+
+![alt text](/.readmeimages/image23.jpg)
 
 ### index.jsp
 
@@ -93,6 +97,9 @@ When we enter address *localhost:8080/calc*, the application return index.jsp pa
 *@Autowired* annotation with constructor give possibility use Dependency Injection (CalcService instance).
 
 *index()* method returns index.jsp page.
+
+![alt text](/.readmeimages/image24.jpg)
+
 *doCalc()* method is runned when post method is executed.
 
 *RequestMapping(value="result")* annotation is name of this controller method (fragment of the mapped url path).
@@ -105,6 +112,8 @@ If yes, application return error.jsp page. If not, calculation is executed.
 In next step *service.executeCalculation()* realized calculations on two numbers from request POST method.
 *mv.addObject()* enables add some objects with like parameters.
 *mv.setViewName()* enables set a view target file.
+
+![alt text](/.readmeimages/image25.jpg)
 
 ### Execute of Application
 
