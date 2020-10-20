@@ -2,6 +2,7 @@ package lukaszkutylowski.controller;
 
 import java.math.BigDecimal;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -13,6 +14,13 @@ import lukaszkutylowski.service.CalcService;
 @Controller
 public class CalcController {
 
+	CalcService service;
+	
+	@Autowired
+	public CalcController(CalcService service) {
+		this.service = service;
+	}
+	
 	@RequestMapping("/calc")
 	public String index() {
 		return "index";
@@ -24,10 +32,9 @@ public class CalcController {
 			@RequestParam("secondNumber") BigDecimal num2,
 			ModelAndView mv) {
 		
-		CalcService service = new CalcService();
 		BigDecimal result = null;
 		
-		if ((isZero(sign, num2)) || (invalidOperator(sign))) {
+		if ((service.isZero(sign, num2)) || (service.invalidOperator(sign))) {
 			mv.setViewName("error");
 			return mv;
 		} else {
@@ -44,13 +51,5 @@ public class CalcController {
 			
 			return mv;
 		}
-	}
-	
-	private boolean isZero(String sign, BigDecimal num2) {
-		return (sign.equals("/") && num2.equals(new BigDecimal("0")));
-	}
-	
-	private boolean invalidOperator(String sign) {
-		return !(sign.equals("+") || sign.equals("-") || sign.equals("*") || sign.equals("/"));
 	}
 }
