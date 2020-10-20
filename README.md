@@ -16,31 +16,31 @@ Calculations are performed on the server side, data input and output is performe
 * CSS
 * Spring Tool Suite STS
 
-## Description
+### Description
 
-"application.properties" it is a configuration file, where are information about view file localization and extension.
+*application.properties* it is a configuration file, where are information about view file localization and extension.
 The most of configurations in this project are implemented by annotations.
 
 *Image shows application.properties file*
 
 ![alt text](/.readmeimages/image1.jpg)
 
-# CalcService
+### CalcService
 
-"@Service" annotation change class on Spring component (like @Component).
-"isZero(String sign, BigDecimal num2)" method is used to check that second variable is zero or not (divide by zero). If variable is zero, return true;
-"invalidOperator(String sign)" method check mathematical operator. If is not valid, return true.
+*@Service* annotation change class on Spring component (like @Component).
+*isZero(String sign, BigDecimal num2)* method is used to check that second variable is zero or not (divide by zero). If variable is zero, return true;
+*invalidOperator(String sign)* method check mathematical operator. If is not valid, return true.
 
-"executeCalculation(BigDecimal num1, BigDecimal num2, String sign)" method send data to private method in order to calculate result value.
+*executeCalculation(BigDecimal num1, BigDecimal num2, String sign)* method send data to private method in order to calculate result value.
 Method assumes two BigDecimal numbers and operator sign (+, -, /, *).
 After calculation this method returns BigDecimal result.
 
-"CalcService" contains four private methods:
+*CalcService* contains four private methods:
 *add(), *subtract()*, *divide()*, *multiply()*.
 This private methods use methods from BigDecimal class to execute operations on two numbers.
 *divide()* method additionaly contains setting according to rounding last digit and 10 significant digits after the decimal point setting.
 
-# index.jsp
+### index.jsp
 
 *index.jsp* it is a frontend side of this web application.
 This Java Server Page contains settings according to UTF-8 charset, import PrintWriter class and import Java Standard Tag Library file. 
@@ -68,7 +68,7 @@ Last section is footer with informations about author and date.
 
 ![alt text](/.readmeimages/image6.jpg)
 
-# error.jsp
+### error.jsp
 
 *Image shows error.jsp file with error message*
 
@@ -76,7 +76,7 @@ When user input dividing by zero or invalid operator then application return err
 
 ![alt text](/.readmeimages/image7.jpg)
 
-# CalcSpringBootMvcApplication
+### CalcSpringBootMvcApplication
 
 *CalcSpringBootMvcApplication* is run class. This class have *@SpringBootApplication* annotation.
 
@@ -84,18 +84,20 @@ When user input dividing by zero or invalid operator then application return err
 
 ![alt text](/.readmeimages/image8.jpg)
 
-# CalcController
+### CalcController
 
 *CalcController* class is a class with *@Controller* annotation. This class supports requests from web browser.
 When we enter address *localhost:8080/calc*, the application return index.jsp page.
 
-*Image shows CalcController class*
+*@Controller* annotation maked class as Spring component.
+*@Autowired* annotation with constructor give possibility use Dependency Injection (CalcService instance).
 
-![alt text](/.readmeimages/image9.jpg)
-
+*index()* method returns index.jsp page.
 *doCalc()* method is runned when post method is executed.
+
 *RequestMapping(value="result")* annotation is name of this controller method (fragment of the mapped url path).
 *method=RequestMethod.POST* indicates that the method responds to the use of the POST method.
+
 *ModelAndView* is a container where we can place objects and send them to the view. 
 From request object we get parameters and save in BigDecimal variables.
 At first application check that operation is dividing by zero or operator is invalid.
@@ -103,19 +105,8 @@ If yes, application return error.jsp page. If not, calculation is executed.
 In next step *service.executeCalculation()* realized calculations on two numbers from request POST method.
 *mv.addObject()* enables add some objects with like parameters.
 *mv.setViewName()* enables set a view target file.
- 
-*Image shows CalcController class*
 
-![alt text](/.readmeimages/image10.jpg)
-
-*isZero()* method check that operation is dividing by zero.
-*invalidOperator()* check that operator is different than (+,-,/,*).
-
-*Image shows CalcController class*
-
-![alt text](/.readmeimages/image11.jpg)
-
-## Execute of Application
+### Execute of Application
 
 *Image shows start page of CalcSpringBootMVC web application.*
 *We can input two numbers and operator sign. Result is printed below.*
